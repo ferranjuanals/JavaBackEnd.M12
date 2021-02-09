@@ -17,7 +17,12 @@ public class InitialController {
     public InitialController(IUserService userService){
         this.userService = userService;
     }
-
+    
+    @GetMapping("")
+    public String helloWorld(@RequestParam(value = "nom", defaultValue = "World") String nom) {
+    	return String.format("Hello %s", nom);
+    }
+    
     @GetMapping("/test")
     public String helloGradle() {
         return "Hello Gradle!";
